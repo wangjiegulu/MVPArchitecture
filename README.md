@@ -3,6 +3,8 @@ Best Practices of MVP architecture.
 
 Blog in Chinese: <http://www.cnblogs.com/tiantianbyconan/p/5422443.html>
 
+![](https://raw.githubusercontent.com/wangjiegulu/wangjiegulu.github.com/master/images/mvp/MVP_Controller.jpg)
+
 License
 =======
 
