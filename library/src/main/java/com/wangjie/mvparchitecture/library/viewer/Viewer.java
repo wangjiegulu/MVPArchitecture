@@ -1,9 +1,10 @@
 package com.wangjie.mvparchitecture.library.viewer;
 
+import android.content.Context;
+import android.support.annotation.Nullable;
+
 import com.wangjie.mvparchitecture.library.contract.OnViewerDestroyListener;
 import com.wangjie.mvparchitecture.library.contract.OnViewerLifecycleListener;
-
-import android.content.Context;
 
 /**
  * Viewer 层
@@ -36,6 +37,7 @@ public interface Viewer {
     /**
      * 获取当前Viewer的Context对象,一般为Activity的Context对象
      */
+    @Nullable
     Context context();
 
     //************* Viewer层常用的UI操作 **************//

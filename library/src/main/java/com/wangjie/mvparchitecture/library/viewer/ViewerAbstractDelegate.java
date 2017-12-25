@@ -1,34 +1,30 @@
 package com.wangjie.mvparchitecture.library.viewer;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.support.annotation.Nullable;
+
 import com.wangjie.mvparchitecture.library.contract.OnViewerDestroyListener;
 import com.wangjie.mvparchitecture.library.contract.OnViewerLifecycleListener;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.Build;
-import android.view.Gravity;
-import android.widget.Toast;
-
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 真正的Viewer的委托
- * 这里处理大部分Viewer层与Controller/Presenter层的绑定和回调
- *
  * Author: wangjie
  * Email: tiantian.china.2@gmail.com
- * Date: 4/12/16.
+ * Date: 11/2/16.
  */
-public class ViewerDelegate implements Viewer, OnViewerLifecycleListener {
+public abstract class ViewerAbstractDelegate implements Viewer, OnViewerLifecycleListener {
     /**
      * 当 viewer 销毁时最好清空掉context
      */
-    private Context mContext;
+    protected WeakReference<Context> mContextRef;
 
-    public ViewerDelegate(Context context) {
-        mContext = context;
+    public ViewerAbstractDelegate(Context context) {
+        mContextRef = new WeakReference<>(context);
     }
 
     /**
@@ -45,9 +41,6 @@ public class ViewerDelegate implements Viewer, OnViewerLifecycleListener {
      * 还有可能是其他关心 Viewer 简单生命周期的组件
      */
     private List<OnViewerLifecycleListener> mOnViewerLifecycleListeners;
-
-    private Toast toast;
-    private ProgressDialog loadingDialog;
 
     /**
      * 增加一个Viewer 生命周期绑定
@@ -82,21 +75,9 @@ public class ViewerDelegate implements Viewer, OnViewerLifecycleListener {
     }
 
     @Override
+    @Nullable
     public Context context() {
-        return mContext;
-    }
-
-    @Override
-    public void showToast(String message) {
-        if (!checkViewer()) {
-            return;
-        }
-        if (null == toast) {
-            toast = Toast.makeText(mContext, "", Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-        }
-        toast.setText(message);
-        toast.show();
+        return null == mContextRef ? null : mContextRef.get();
     }
 
     @Override
@@ -104,21 +85,7 @@ public class ViewerDelegate implements Viewer, OnViewerLifecycleListener {
         if (!checkViewer()) {
             return;
         }
-        showToast(mContext.getString(resStringId));
-    }
-
-    @Override
-    public void showLoadingDialog(String message) {
-        if (!checkViewer()) {
-            return;
-        }
-
-        if (null == loadingDialog) {
-            loadingDialog = new ProgressDialog(mContext);
-            loadingDialog.setCanceledOnTouchOutside(false);
-        }
-        loadingDialog.setMessage(message);
-        loadingDialog.show();
+        showToast(mContextRef.get().getString(resStringId));
     }
 
     @Override
@@ -126,28 +93,19 @@ public class ViewerDelegate implements Viewer, OnViewerLifecycleListener {
         if (!checkViewer()) {
             return;
         }
-        showLoadingDialog(mContext.getString(resStringId));
-    }
-
-    @Override
-    public void cancelLoadingDialog() {
-        if (!checkViewer()) {
-            return;
-        }
-        if (null != loadingDialog) {
-            loadingDialog.cancel();
-        }
+        showLoadingDialog(mContextRef.get().getString(resStringId));
     }
 
     /**
      * 检测context是否为null
      * 因为在Viewer销毁时会调用onViewerDestroy,会置空context,所以如果context不是null,则说明Viewer还存在
      */
-    private boolean checkViewer() {
-        if (null == mContext) {
+    protected boolean checkViewer() {
+        Context context;
+        if (null == mContextRef || null == (context = mContextRef.get())) {
             return false;
         }
-        if (mContext instanceof Activity && isActivityFinishingOrDestroy((Activity) mContext)) {
+        if (context instanceof Activity && isActivityFinishingOrDestroy((Activity) context)) {
             return false;
         }
         return true;
@@ -183,12 +141,17 @@ public class ViewerDelegate implements Viewer, OnViewerLifecycleListener {
                 odl.onViewerDestroy();
             }
         }
-        mContext = null;
+        if(null != mContextRef){
+            if(null != mContextRef.get()){
+                mContextRef.clear();
+            }
+            mContextRef = null;
+        }
         mOnViewerDestroyListeners = null;
         mOnViewerLifecycleListeners = null;
     }
 
-    private boolean isActivityFinishingOrDestroy(Activity activity) {
+    protected boolean isActivityFinishingOrDestroy(Activity activity) {
         if (Build.VERSION.SDK_INT >= 17) {
             return activity.isFinishing() || activity.isDestroyed();
         } else {

@@ -1,15 +1,15 @@
 package com.wangjie.mvparchitecture.base;
 
-import com.wangjie.mvparchitecture.library.contract.OnViewerDestroyListener;
-import com.wangjie.mvparchitecture.library.contract.OnViewerLifecycleListener;
-import com.wangjie.mvparchitecture.library.viewer.Viewer;
-import com.wangjie.mvparchitecture.library.viewer.ViewerDelegate;
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+
+import com.wangjie.mvparchitecture.library.contract.OnViewerDestroyListener;
+import com.wangjie.mvparchitecture.library.contract.OnViewerLifecycleListener;
+import com.wangjie.mvparchitecture.library.viewer.Viewer;
+import com.wangjie.mvparchitecture.library.viewer.ViewerDelegateDefault;
 
 /**
  * Author: wangjie
@@ -17,7 +17,7 @@ import android.widget.FrameLayout;
  * Date: 6/27/16.
  */
 public class BaseFrameLayout extends FrameLayout implements Viewer {
-    private ViewerDelegate mViewerDelegate;
+    private ViewerDelegateDefault mViewerDelegate;
 
     public BaseFrameLayout(Context context) {
         super(context);
@@ -42,7 +42,7 @@ public class BaseFrameLayout extends FrameLayout implements Viewer {
 
 
     public void initialize() {
-        mViewerDelegate = new ViewerDelegate(getContext());
+        mViewerDelegate = new ViewerDelegateDefault(getContext());
     }
 
     @Override

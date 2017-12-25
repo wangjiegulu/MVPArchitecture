@@ -1,11 +1,11 @@
 package com.wangjie.mvparchitecture.main;
 
+import android.view.View;
+import android.widget.AdapterView;
+
 import com.wangjie.mvparchitecture.R;
 import com.wangjie.mvparchitecture.library.controller.BaseController;
 import com.wangjie.mvparchitecture.library.viewer.Viewer;
-
-import android.view.View;
-import android.widget.AdapterView;
 
 import static com.wangjie.mvparchitecture.main.MainContract.IMainController;
 import static com.wangjie.mvparchitecture.main.MainContract.IMainPresenter;
@@ -28,7 +28,7 @@ public class MainController extends BaseController implements IMainController {
     public void bind(Viewer bindViewer) {
         super.bind(bindViewer);
 
-        // TODO: 6/27/16 Need inject use Dagger2 or Rapier
+        // TODO: 6/27/16 Need inject use Dagger2
         mPresenter = new MainPresenter(mViewer);
         mPresenter.bind(mViewer);
     }

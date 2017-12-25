@@ -1,11 +1,11 @@
 package com.wangjie.mvparchitecture.main;
 
-import com.wangjie.mvparchitecture.R;
-import com.wangjie.mvparchitecture.base.BaseActivity;
-
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.wangjie.mvparchitecture.R;
+import com.wangjie.mvparchitecture.base.BaseActivity;
 
 import java.util.List;
 
@@ -22,9 +22,9 @@ public class MainActivity extends BaseActivity implements IMainViewer {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // TODO: 6/27/16 Need inject use Dagger2 or Rapier
+        // TODO: 6/27/16 Need inject use Dagger2
         mController = new MainController(this);
-        dataLv = (ListView) findViewById(R.id.activity_main_lv);
+        dataLv = findViewById(R.id.activity_main_lv);
 
         dataLv.setOnItemClickListener(mController);
         findViewById(R.id.activity_main_load_data_btn).setOnClickListener(mController);

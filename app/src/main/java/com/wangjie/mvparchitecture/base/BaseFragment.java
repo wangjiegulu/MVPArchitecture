@@ -1,14 +1,14 @@
 package com.wangjie.mvparchitecture.base;
 
-import com.wangjie.mvparchitecture.library.contract.OnViewerDestroyListener;
-import com.wangjie.mvparchitecture.library.contract.OnViewerLifecycleListener;
-import com.wangjie.mvparchitecture.library.viewer.Viewer;
-import com.wangjie.mvparchitecture.library.viewer.ViewerDelegate;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+
+import com.wangjie.mvparchitecture.library.contract.OnViewerDestroyListener;
+import com.wangjie.mvparchitecture.library.contract.OnViewerLifecycleListener;
+import com.wangjie.mvparchitecture.library.viewer.Viewer;
+import com.wangjie.mvparchitecture.library.viewer.ViewerDelegateDefault;
 
 /**
  * Author: wangjie
@@ -16,12 +16,12 @@ import android.support.v4.app.Fragment;
  * Date: 6/27/16.
  */
 public class BaseFragment extends Fragment implements Viewer {
-    private ViewerDelegate mViewerDelegate;
+    private ViewerDelegateDefault mViewerDelegate;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewerDelegate = new ViewerDelegate(getContext());
+        mViewerDelegate = new ViewerDelegateDefault(getContext());
     }
 
 
