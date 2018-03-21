@@ -1,10 +1,10 @@
-package com.wangjie.mvparchitecture.library.viewer;
+package com.wangjiegulu.mvparchitecture.library.viewer;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
 
-import com.wangjie.mvparchitecture.library.contract.OnViewerDestroyListener;
-import com.wangjie.mvparchitecture.library.contract.OnViewerLifecycleListener;
+import com.wangjiegulu.mvparchitecture.library.contract.OnViewerDestroyListener;
+import com.wangjiegulu.mvparchitecture.library.contract.OnViewerLifecycleListener;
 
 /**
  * Viewer 层

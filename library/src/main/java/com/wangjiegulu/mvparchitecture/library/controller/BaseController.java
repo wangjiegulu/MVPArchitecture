@@ -1,7 +1,7 @@
-package com.wangjie.mvparchitecture.library.controller;
+package com.wangjiegulu.mvparchitecture.library.controller;
 
 
-import com.wangjie.mvparchitecture.library.viewer.Viewer;
+import com.wangjiegulu.mvparchitecture.library.viewer.Viewer;
 
 /**
  * Controller层的默认空实现

@@ -1,7 +1,7 @@
-package com.wangjie.mvparchitecture.library.presenter;
+package com.wangjiegulu.mvparchitecture.library.presenter;
 
-import com.wangjie.mvparchitecture.library.contract.OnViewerDestroyListener;
-import com.wangjie.mvparchitecture.library.viewer.Viewer;
+import com.wangjiegulu.mvparchitecture.library.contract.OnViewerDestroyListener;
+import com.wangjiegulu.mvparchitecture.library.viewer.Viewer;
 
 /**
  * MVP的Presenter层，作为沟通 View 和 Model 的桥梁，它从 Model 层检索数据后，返回给 View 层，它也可以决定与 View 层的交互操作。

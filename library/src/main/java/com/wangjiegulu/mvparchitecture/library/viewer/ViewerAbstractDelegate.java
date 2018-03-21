@@ -1,12 +1,12 @@
-package com.wangjie.mvparchitecture.library.viewer;
+package com.wangjiegulu.mvparchitecture.library.viewer;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.Nullable;
 
-import com.wangjie.mvparchitecture.library.contract.OnViewerDestroyListener;
-import com.wangjie.mvparchitecture.library.contract.OnViewerLifecycleListener;
+import com.wangjiegulu.mvparchitecture.library.contract.OnViewerDestroyListener;
+import com.wangjiegulu.mvparchitecture.library.contract.OnViewerLifecycleListener;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

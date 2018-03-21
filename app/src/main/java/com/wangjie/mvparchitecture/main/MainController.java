@@ -4,8 +4,8 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import com.wangjie.mvparchitecture.R;
-import com.wangjie.mvparchitecture.library.controller.BaseController;
-import com.wangjie.mvparchitecture.library.viewer.Viewer;
+import com.wangjiegulu.mvparchitecture.library.controller.BaseController;
+import com.wangjiegulu.mvparchitecture.library.viewer.Viewer;
 
 import static com.wangjie.mvparchitecture.main.MainContract.IMainController;
 import static com.wangjie.mvparchitecture.main.MainContract.IMainPresenter;

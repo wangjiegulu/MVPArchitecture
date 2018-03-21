@@ -6,10 +6,10 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
-import com.wangjie.mvparchitecture.library.contract.OnViewerDestroyListener;
-import com.wangjie.mvparchitecture.library.contract.OnViewerLifecycleListener;
-import com.wangjie.mvparchitecture.library.viewer.Viewer;
-import com.wangjie.mvparchitecture.library.viewer.ViewerDelegateDefault;
+import com.wangjiegulu.mvparchitecture.library.contract.OnViewerDestroyListener;
+import com.wangjiegulu.mvparchitecture.library.contract.OnViewerLifecycleListener;
+import com.wangjiegulu.mvparchitecture.library.viewer.Viewer;
+import com.wangjiegulu.mvparchitecture.library.viewer.ViewerDelegateDefault;
 
 /**
  * Author: wangjie

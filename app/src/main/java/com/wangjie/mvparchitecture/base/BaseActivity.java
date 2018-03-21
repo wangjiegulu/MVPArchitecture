@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.wangjie.mvparchitecture.library.contract.OnViewerDestroyListener;
-import com.wangjie.mvparchitecture.library.contract.OnViewerLifecycleListener;
-import com.wangjie.mvparchitecture.library.viewer.Viewer;
-import com.wangjie.mvparchitecture.library.viewer.ViewerDelegateDefault;
+import com.wangjiegulu.mvparchitecture.library.contract.OnViewerDestroyListener;
+import com.wangjiegulu.mvparchitecture.library.contract.OnViewerLifecycleListener;
+import com.wangjiegulu.mvparchitecture.library.viewer.Viewer;
+import com.wangjiegulu.mvparchitecture.library.viewer.ViewerDelegateDefault;
 
 /**
  * Author: wangjie

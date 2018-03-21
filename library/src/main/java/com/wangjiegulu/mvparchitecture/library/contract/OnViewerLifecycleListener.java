@@ -1,4 +1,4 @@
-package com.wangjie.mvparchitecture.library.contract;
+package com.wangjiegulu.mvparchitecture.library.contract;
 
 /**
  * View层简单生命周期的绑定

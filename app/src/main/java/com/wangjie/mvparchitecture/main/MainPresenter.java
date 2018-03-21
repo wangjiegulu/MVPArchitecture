@@ -2,7 +2,7 @@ package com.wangjie.mvparchitecture.main;
 
 import android.util.Log;
 
-import com.wangjie.mvparchitecture.library.rx.presenter.RxBasePresenter;
+import com.wangjiegulu.mvparchitecture.library.rx.RxBasePresenter;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

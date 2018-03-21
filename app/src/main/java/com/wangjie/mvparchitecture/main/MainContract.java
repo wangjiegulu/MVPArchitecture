@@ -1,8 +1,8 @@
 package com.wangjie.mvparchitecture.main;
 
-import com.wangjie.mvparchitecture.library.controller.Controller;
-import com.wangjie.mvparchitecture.library.presenter.Presenter;
-import com.wangjie.mvparchitecture.library.viewer.Viewer;
+import com.wangjiegulu.mvparchitecture.library.controller.Controller;
+import com.wangjiegulu.mvparchitecture.library.presenter.Presenter;
+import com.wangjiegulu.mvparchitecture.library.viewer.Viewer;
 
 import android.view.View;
 import android.widget.AdapterView;

@@ -1,6 +1,6 @@
-package com.wangjie.mvparchitecture.library.rx.presenter;
+package com.wangjiegulu.mvparchitecture.library.rx;
 
-import com.wangjie.mvparchitecture.library.presenter.Presenter;
+import com.wangjiegulu.mvparchitecture.library.presenter.Presenter;
 
 import io.reactivex.disposables.Disposable;
 

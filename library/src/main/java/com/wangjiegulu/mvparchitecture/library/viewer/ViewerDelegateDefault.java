@@ -1,4 +1,4 @@
-package com.wangjie.mvparchitecture.library.viewer;
+package com.wangjiegulu.mvparchitecture.library.viewer;
 
 import android.app.ProgressDialog;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.wangjie.mvparchitecture.library.contract;
+package com.wangjiegulu.mvparchitecture.library.contract;
 
 /**
  * Viewer层的销毁回调

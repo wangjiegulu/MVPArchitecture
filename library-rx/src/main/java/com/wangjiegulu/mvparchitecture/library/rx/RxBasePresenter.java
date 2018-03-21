@@ -1,8 +1,8 @@
-package com.wangjie.mvparchitecture.library.rx.presenter;
+package com.wangjiegulu.mvparchitecture.library.rx;
 
 import android.util.Log;
 
-import com.wangjie.mvparchitecture.library.viewer.Viewer;
+import com.wangjiegulu.mvparchitecture.library.viewer.Viewer;
 
 import java.util.Collections;
 import java.util.Iterator;
