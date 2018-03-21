@@ -29,4 +29,60 @@ dependencies {
     testCompile "junit:junit:$global_junitVersion"
 }
 
-apply from: '../mavenupload/maven_push.gradle'
+// maven push
+apply plugin: 'com.github.wangjiegulu.plg.rapidmavenpush'
+rapidMavenPush {
+    printProperties = true
+    abortOnError = false
+    disable = false
+    defaultMavenType = 'local'
+    mavens {
+        maven {
+            mavenType = 'local'
+            propertyFiles = [
+                    file("../mavenupload/maven_common.properties"),
+                    file("mavenupload/maven_local.properties")
+            ]
+            propertyInjectMode = 'replace'
+        }
+        maven {
+            mavenType = 'company'
+            propertyFiles = [
+                    file("../mavenupload/maven_common.properties"),
+                    file("mavenupload/maven_company.properties")
+            ]
+            propertyInjectMode = 'replace'
+        }
+        maven {
+            mavenType = 'central'
+            propertyFiles = [
+                    file("../mavenupload/maven_common.properties"),
+                    file("mavenupload/maven_central.properties")
+            ]
+            propertyInjectMode = 'replace'
+        }
+    }
+}
+
+// meta-inf
+import com.wangjiegulu.plg.rapidmavenpush.RapidParameterParser
+
+apply plugin: 'com.github.wangjiegulu.plg.rapidmetainf'
+project.afterEvaluate {
+    // META-INF properties
+    rapidmetainf {
+        RapidParameterParser rapidParameterParser = new RapidParameterParser(project)
+        metaInfName 'MVPARCHITECTURE-RX.properties'
+        metaInfProperties "Archive-Name=${rapidParameterParser.getStringParameter('POM_ARCHIVE_ID')}",
+                "Archive-Version=${rapidParameterParser.getStringParameter('POM_ARCHIVE_VERSION_NAME')}",
+                "Archive-Url=${rapidParameterParser.getStringParameter('POM_URL')}",
+                "Author=${rapidParameterParser.getStringParameter('POM_DEVELOPER_NAME')}",
+                "Author-Email=${rapidParameterParser.getStringParameter('POM_DEVELOPER_EMAIL')}",
+                "Gradle-Version=${GradleVersion.current()}",
+                "Build-OS=${System.properties['os.name']}",
+                "Build-Java-Version=${System.getProperty("java.version")}",
+                "X-Compile-Target=${android.compileOptions.targetCompatibility}",
+                "X-Compile-Source=${android.compileOptions.sourceCompatibility}"
+
+    }
+}

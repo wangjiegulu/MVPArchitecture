@@ -38,3 +38,5 @@ captures/
 
 # Keystore files
 *.jks
+
+maven_company.properties
