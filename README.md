@@ -1,5 +1,9 @@
 # MVPArchitecture
 
+[![](https://img.shields.io/badge/license-Apache%202-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0) ![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)
+
+[![](https://img.shields.io/badge/blog-Wang%20Jie-228377.svg)](https://blog.wangjiegulu.com) [![](https://img.shields.io/badge/twitter-@wangjiegulu-blue.svg)](https://twitter.com/wangjiegulu)
+
 Best Practices of MVP architecture. MVP framework for Android
 
 Blog in Chinese: <http://www.cnblogs.com/tiantianbyconan/p/5422443.html>
@@ -12,10 +16,14 @@ Blog in Chinese: <http://www.cnblogs.com/tiantianbyconan/p/5422443.html>
 
 #### Gadle([Check newest version](http://search.maven.org/#search%7Cga%7C1%7Cmvparchitecture))
 
-```groovy
-compile "com.github.wangjiegulu:mvparchitecture:x.x.x"
+- **mvparchitecture:** [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.wangjiegulu/mvparchitecture/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.wangjiegulu/mvparchitecture)
 
-compile "com.github.wangjiegulu:mvparchitecture-rx:x.x.x"
+- **mvparchitecture-rx:** [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.wangjiegulu/mvparchitecture-rx/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.wangjiegulu/mvparchitecture-rx)
+
+```groovy
+implementation "com.github.wangjiegulu:mvparchitecture:x.x.x"
+
+implementation "com.github.wangjiegulu:mvparchitecture-rx:x.x.x"
 ```
 
 ### 2. Viewer implementation
